@@ -85,7 +85,7 @@ function getNumber(index, element) {
       }
       newNumbersArray.join('');
       console.log(newNumbersArray);
-    } // XD NO ME SALE
+    }
   }
   // console.log(newNumbersArray);
 }
