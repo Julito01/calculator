@@ -11,25 +11,40 @@
   <body>
     <main class="main-container">
       <div class="div-calculator">
-        <div id="display-container" class="display-container">0</div>
+        <div data-display-number class="display-number">
+          <div data-previous-operand class="previous-operand">123*</div>
+          <div
+            data-current-operand
+            id="display-container"
+            class="current-operand"
+          >
+            0
+          </div>
+        </div>
         <div class="number-container">
           <div data-operator-button class="operator-button">+</div>
           <div data-operator-button class="operator-button">-</div>
           <div data-operator-button class="operator-button">/</div>
           <div data-operator-button class="operator-button">*</div>
-          <div id="reset-button" class="reset-container">C</div>
-          <div class="element-container">0</div>
-          <div class="element-container">1</div>
-          <div class="element-container">2</div>
-          <div class="element-container">3</div>
-          <div class="element-container">4</div>
-          <div class="element-container">5</div>
-          <div class="element-container">6</div>
-          <div class="element-container">7</div>
-          <div class="element-container">8</div>
-          <div class="element-container">9</div>
-          <div id="delete-button" class="delete-container">Delete</div>
-          <div id="equal-button" class="equal-container">=</div>
+          <div data-reset-button id="reset-button" class="reset-container">
+            C
+          </div>
+          <div data-number class="element-container">0</div>
+          <div data-number class="element-container">1</div>
+          <div data-number class="element-container">2</div>
+          <div data-number class="element-container">3</div>
+          <div data-number class="element-container">4</div>
+          <div data-number class="element-container">5</div>
+          <div data-number class="element-container">6</div>
+          <div data-number class="element-container">7</div>
+          <div data-number class="element-container">8</div>
+          <div data-number class="element-container">9</div>
+          <div data-delete-button id="delete-button" class="delete-container">
+            Delete
+          </div>
+          <div data-equal-button id="equal-button" class="equal-container">
+            =
+          </div>
         </div>
       </div>
     </main>
