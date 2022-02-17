@@ -21,6 +21,7 @@ function removeLastCharacter() {
 let operatorClicked = '';
 let firstOperation = true;
 let operationCounter = 0;
+let errorDivision = false;
 
 Array.from(operatorButtonArray).forEach((operatorButton) => {
   operatorButton.addEventListener('click', (e) => {
@@ -61,6 +62,13 @@ Array.from(numberList).forEach((number) => {
       currentNumberDisplay.innerText = '';
       operationCounter -= 1;
     }
+    if (errorDivision) {
+      currentNumberDisplay.innerText = '';
+      previousNumberDisplay.innerText = '';
+      errorDivision = false;
+      firstOperation = true;
+      operationCounter = 0;
+    }
     currentNumberDisplay.innerText += number;
     e.preventDefault();
   });
@@ -72,9 +80,11 @@ equalButton.addEventListener('click', (e) => {
   // console.log(previousNumberDisplay.innerText);
   let operatorClicked = previousNumberDisplay.innerText.toString().substr(-1);
   let previousNumber = removeLastCharacter();
-  if (currentNumberDisplay.innerText === '0') {
+  console.log(operatorClicked);
+  if (currentNumberDisplay.innerText === '0' && operatorClicked === '/') {
     currentNumberDisplay.innerText = 'Error.';
     previousNumberDisplay.innerText = 'Cannot divide by 0';
+    errorDivision = true;
     return;
   }
   let operationResult = calculateOperation(
@@ -90,6 +100,10 @@ equalButton.addEventListener('click', (e) => {
 
 function calculateOperation(n1, n2, operator) {
   let operationResult = 0;
+  if (operator === '/') {
+    operationResult = parseInt(n2) / parseInt(n1);
+    return operationResult;
+  }
   if (operator === '+') {
     operationResult = parseInt(n1) + parseInt(n2);
     return operationResult;
@@ -100,10 +114,6 @@ function calculateOperation(n1, n2, operator) {
   }
   if (operator === '*') {
     operationResult = parseInt(n1) * parseInt(n2);
-    return operationResult;
-  }
-  if (operator === '/') {
-    operationResult = parseInt(n1) / parseInt(n2);
     return operationResult;
   }
 }
